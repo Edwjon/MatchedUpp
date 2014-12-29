@@ -8,12 +8,22 @@
 
 #import "AppDelegate.h"
 
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [Parse setApplicationId:@"VVmxADeBkHi4vhay4gGpYSthCaTdMEYqYzdJsWWX"
+                  clientKey:@"9CRKKM3JccL7i9qyN711rlOFIkEDtHK1MG6S5tNB"];
+    [PFFacebookUtils initializeFacebook];
     return YES;
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [PFFacebookUtils handleOpenURL:url];
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
